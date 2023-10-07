@@ -1,5 +1,2 @@
 # Project exclude paths
-/app.js
-/clone.js
-/Node.js
-/Value.js
+/.idea/
