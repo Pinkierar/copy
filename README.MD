@@ -1,5 +1,7 @@
 This repository contains a function for copying objects of any complexity, any nesting, with functions, or empty objects
 
+Demo: [pinkierar.ru/exp/js/Copy](https://pinkierar.ru/exp/js/Copy)
+
 ## Use window.clone for cloning
 #### Typification:
 ```typescript
