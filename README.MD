@@ -1,1 +1,1 @@
-Этот репозиторий содержит функцию для копирования объектов любой сложности, любой вложенности, с функциями, или пустыми объектами
+This repository contains a function for copying objects of any complexity, any nesting, with functions, or empty objects
