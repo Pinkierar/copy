@@ -2,7 +2,7 @@ This repository contains a function for copying objects of any complexity, any n
 
 Demo: [pinkierar.ru/exp/js/Copy](https://pinkierar.ru/exp/js/Copy)
 
-## Use window.clone for cloning
+## Use clone for cloning
 #### Typification:
 ```typescript
 clone<T>(object: T) => T
@@ -16,7 +16,7 @@ console.log('obj', obj);
 console.log('cloned', cloned);
 ```
 
-## Use window.cloneTest for testing with logging
+## Use cloneTest for testing with logging
 #### Typification:
 ```typescript
 cloneTest(testName: string, object: any, modifier?: (cloned: any) => void) => void
