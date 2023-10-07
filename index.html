@@ -4,8 +4,71 @@
     <meta charset="UTF-8">
     <script src="./tsc/app.js" type="module"></script>
     <title>Test Copy</title>
+    <style>
+        * {
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 1em 2em;
+            font-size: 14pt;
+            font-family: sans-serif;
+            color: #555;
+        }
+
+        pre {
+            padding-left: 2em;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
 </head>
 <body>
-Check your console
+<h1>Use your console (F12 | Console)</h1>
+<hr>
+
+<br>
+
+<h2>Use window.clone for cloning</h2>
+<h4>Typification:</h4>
+<pre>
+window.clone&lt;T&gt;(object: T) =&gt; T
+</pre>
+<h4>Example:</h4>
+<pre>
+const obj = {key1: {key2: 'value'}}
+const cloned = window.clone(obj);
+cloned.key1.key2 = 'MODIFIED';
+console.log('obj', obj);
+console.log('cloned', cloned);
+</pre>
+
+<br>
+
+<h2>Use window.cloneTest for testing with logging</h2>
+<h4>Typification:</h4>
+<pre>
+cloneTest(testName: string, object: any, modifier?: (cloned: any) =&gt; void) =&gt; void
+</pre>
+<h4>Example:</h4>
+<pre>
+window.cloneTest('My test', {key1: {key2: 'value'}}, cloned =&gt; {
+    cloned.key1.key2 = 'MODIFIED';
+});
+</pre>
+
+<script>
+  const pres = document.getElementsByTagName('pre');
+  const sel = window.getSelection();
+  for (const pre of pres) {
+    pre.onclick = () => {
+      const rng = document.createRange();
+      rng.selectNode(pre);
+      sel.removeAllRanges();
+      sel.addRange(rng);
+    };
+  }
+</script>
 </body>
 </html>
