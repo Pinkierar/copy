@@ -1,13 +1,17 @@
 import { Value, ValueComplex } from './Value.js';
 import { NodeComplex } from './Node.js';
-export function clone(obj) {
+import { Timeout } from './Timeout.js';
+export function clone(value, timeLimit = 3000) {
     // Примитивы не имеют вложенности
-    if (!Value.isComplex(obj))
-        return obj;
-    const rootNode = NodeComplex.createRoot(new ValueComplex(obj));
+    if (!Value.isComplex(value))
+        return value;
+    const timeout = new Timeout(timeLimit);
+    const rootNode = NodeComplex.createRoot(new ValueComplex(value));
     let parent = rootNode;
     let current = null;
     while (true) {
+        if (timeout.isTimeout())
+            throw new Error('time out');
         if (parent.value.isEmpty() || current?.isLast()) {
             if (parent === rootNode)
                 break;
